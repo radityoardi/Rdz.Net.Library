@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>radityo.ardi</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  
+  <ItemGroup>
+      <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <UsingTask TaskName="SetVersionNumber" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildBinPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <CreationYear ParameterType="System.Int16" Required="true" />
+      <GeneratedVersion ParameterType="System.String" Output="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System" />
+      <Code Type="Fragment" Language="C#">
+        <![CDATA[
+        GeneratedVersion = $"{DateTime.UtcNow.AddYears(-CreationYear).Year.ToString()}.{DateTime.UtcNow.ToString("Mdd")}.{DateTime.UtcNow.ToString("Hmm")}.{DateTime.UtcNow.ToString("sff")}";
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+  <Target Name="Versioning" BeforeTargets="PreBuildEvent">
+    <SetVersionNumber CreationYear="2021">
+      <Output TaskParameter="GeneratedVersion" PropertyName="GeneratedVersion" />
+    </SetVersionNumber>
+    <Message Text="Auto-generated version is: $(GeneratedVersion)" Importance="High" />
+    <PropertyGroup>
+      <AssemblyVersion>$(GeneratedVersion)</AssemblyVersion>
+      <FileVersion>$(GeneratedVersion)</FileVersion>
+      <PackageVersion>$(GeneratedVersion)</PackageVersion>
+      <Version>$(GeneratedVersion)</Version>
+    </PropertyGroup>
+  </Target>
+</Project>
