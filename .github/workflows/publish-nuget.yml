@@ -24,7 +24,7 @@ jobs:
       id: csproj-version
       uses: kzrnm/get-net-sdk-project-versions-action@v1
       with:
-        proj-path: src/Rdz.cTrader.Library/Rdz.cTrader.Library.csproj
+        proj-path: src/Rdz.Net.Library.csproj
     
     - name: Get Project version
       run: |
