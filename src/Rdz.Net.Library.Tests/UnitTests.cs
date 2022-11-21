@@ -33,7 +33,7 @@ namespace Rdz.Net.Library.Tests
 		}
 
 		[Theory]
-		[InlineData("String: {Text}, Double: {NumberDouble}, Int32: {NumberInteger}, Date: {DateFirst}", "String: this is string, Double: 1234.5678, Int32: 1234, Date: 01-Jan-01 12:00:00 AM")]
+		[InlineData("String: {Text}, Double: {NumberDouble}, Int32: {NumberInteger}", "String: this is string, Double: 1234.5678, Int32: 1234")]
 		[InlineData("String: {Text}, Double: {NumberDouble:#,##0.0}, Int32: {NumberInteger:#,##0.00}, Date: {DateFirst:ddMMyyyy}", "String: this is string, Double: 1,234.6, Int32: 1,234.00, Date: 01010001")]
 		[InlineData("Date1: {DateFirst:ddMMyyyy}", "Date1: 01010001")]
 		[InlineData("Date2: {DateFirst:HHmmss}", "Date2: 000000")]
