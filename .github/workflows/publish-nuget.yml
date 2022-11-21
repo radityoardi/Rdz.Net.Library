@@ -13,6 +13,8 @@ jobs:
     env:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'src/Rdz.Net.Library.sln'
+      TEST_PROJECT: 'src/Rdz.Net.Library.Tests/Rdz.Net.Library.Tests.csproj'
+      DOTNETVERSION: '6.0.x'
 
     runs-on: ubuntu-latest
 
@@ -26,14 +28,17 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: $DOTNETVERSION
 
     - name: Restore dependencies
       run: dotnet restore $SOLUTION
 
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
-      
+    
+    - name: Test
+      run: dotnet test $TEST_PROJECT --configuration $BUILD_CONFIG --no-build --no-restore
+
     - name: Publish to NuGet
       if: startsWith(github.ref, 'refs/heads/master')
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}

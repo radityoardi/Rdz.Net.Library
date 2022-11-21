@@ -26,6 +26,7 @@
       </Code>
     </Task>
   </UsingTask>
+
   <Target Name="Versioning" BeforeTargets="PreBuildEvent">
     <SetVersionNumber CreationYear="2021">
       <Output TaskParameter="GeneratedVersion" PropertyName="GeneratedVersion" />
@@ -38,4 +39,5 @@
       <Version>$(GeneratedVersion)</Version>
     </PropertyGroup>
   </Target>
+
 </Project>
