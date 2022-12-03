@@ -99,6 +99,17 @@ namespace System
 		#endregion
 
 		#region String
+		/// <summary>
+		/// Test whether string is exist (not null, not empty, nor whitespace)
+		/// </summary>
+		public static bool IsExist(this string input)
+		{
+			return input != null && !string.IsNullOrEmpty(input) && !string.IsNullOrWhiteSpace(input);
+		}
+
+		/// <summary>
+		/// Format a string template based on the dynamic input data.
+		/// </summary>
 		public static string FormatTemplate(this string input, dynamic data)
 		{
 			int indexer = 0;
