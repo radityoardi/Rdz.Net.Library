@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Xunit;
 
 namespace Rdz.Net.Library.Tests
@@ -61,6 +62,32 @@ namespace Rdz.Net.Library.Tests
 		void FormatTemplateInputError(string value)
 		{
 			var ex = Assert.Throws<ArgumentNullException>(() => value.FormatTemplate(null));
+		}
+
+		[Theory]
+		[InlineData(null, true)]
+		[InlineData("123", false)]
+		[InlineData(true, false)]
+		[InlineData(false, false)]
+		void TestObjectIsNull(object value, bool expected)
+		{
+			Assert.Equal(expected, value.IsNull());
+		}
+
+		[Fact]
+		void TestClassIsNotNull()
+		{
+			var data = new { };
+			Assert.False(data.IsNull());
+		}
+
+		[Fact]
+		void TestClassIsNull()
+		{
+			List<int> list = new List<int>();
+			list.AddRange(new[] { 1, 2 });
+			var info = list.FirstOrDefault(x => x > 10);
+			Assert.False(info.IsNull());
 		}
 	}
 }

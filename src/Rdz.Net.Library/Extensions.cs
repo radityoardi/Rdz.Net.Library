@@ -10,6 +10,16 @@ namespace System
 {
 	public static class Extensions
 	{
+		#region Object
+		/// <summary>
+		/// Test if an object is null.
+		/// </summary>
+		public static bool IsNull(this object input)
+		{
+			return input == null;
+		}
+		#endregion
+
 		#region Double
 		public static bool IsPositive(this double input)
 		{
