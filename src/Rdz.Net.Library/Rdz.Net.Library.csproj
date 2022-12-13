@@ -9,7 +9,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-      <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+      <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <UsingTask TaskName="SetVersionNumber" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildBinPath)\Microsoft.Build.Tasks.Core.dll">
@@ -38,6 +38,10 @@
       <PackageVersion>$(GeneratedVersion)</PackageVersion>
       <Version>$(GeneratedVersion)</Version>
     </PropertyGroup>
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xmldocmd $(OutDir)$(AssemblyName).dll ../../docs --source $(ProjectDir)" />
   </Target>
 
 </Project>

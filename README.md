@@ -8,7 +8,8 @@ dotnet add "{your-project-path}" package Rdz.Net.Library
 ```
 Otherwise, go to your Visual Studio Package Manager, and look for Rdz.Net.Library. You don't need to use `using` directive, as the assembly extension tagged to `System` namespace which always available on project creation.
 
-
+# Auto-generated Documentations
+Read this [Rdz.Net.Library documentation](docs/Rdz.Net.Library.md) for further information.
 
 # String.FormatTemplate Method
 Namespace: System
