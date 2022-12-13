@@ -21,34 +21,64 @@ namespace System
 		#endregion
 
 		#region Double
+		/// <summary>
+		/// Returns true when it's positive.
+		/// </summary>
 		public static bool IsPositive(this double input)
 		{
 			return (!double.IsNaN(input) && input > 0);
 		}
+		/// <summary>
+		/// Returns true when it's negative.
+		/// </summary>
 		public static bool IsNegative(this double input)
 		{
 			return (!double.IsNaN(input) && input < 0);
 		}
+		/// <summary>
+		/// Returns true when it's zero.
+		/// </summary>
 		public static bool IsZero(this double input)
 		{
 			return (!double.IsNaN(input) && input == 0);
 		}
+		/// <summary>
+		/// Returns true when it's above the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsAbove(this double input, double comparer)
 		{
 			return input > comparer;
 		}
+		/// <summary>
+		/// Returns true when it's above or equal the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsAboveOrEqual(this double input, double comparer)
 		{
 			return input >= comparer;
 		}
+		/// <summary>
+		/// Returns true when it's below the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsBelow(this double input, double comparer)
 		{
 			return input < comparer;
 		}
+		/// <summary>
+		/// Returns true when it's below or equal the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsBelowOrEqual(this double input, double comparer)
 		{
 			return input <= comparer;
 		}
+		/// <summary>
+		/// Returns true when it's between both comparer.
+		/// </summary>
+		/// <param name="comparerA">The floor value to compare.</param>
+		/// <param name="comparerB">The ceiling value to compare.</param>
 		public static bool IsBetween(this double input, double comparerA, double comparerB)
 		{
 			if (comparerA >= comparerB)
@@ -62,37 +92,98 @@ namespace System
 			else
 				return input == comparerA && input == comparerB;
 		}
+
+		/// <summary>
+		/// Returns true when it's NaN (undefined).
+		/// </summary>
+		public static bool IsNaN(this double input)
+		{
+			return double.IsNaN(input);
+		}
+
+		/// <summary>
+		/// Adds the number precisely (this fix the precision issue.
+		/// </summary>
+		/// <param name="value">The value to add.</param>
+		public static double Add(this double input, double value)
+		{
+			if (value.IsNaN())
+				return double.NaN;
+			return input.Add(Convert.ToDecimal(value));
+		}
+
+		/// <summary>
+		/// Adds the number precisely (this fix the precision issue.
+		/// </summary>
+		/// <param name="value">The value to add.</param>
+		public static double Add(this double input, decimal value)
+		{
+			if (input.IsNaN())
+				return double.NaN;
+			return Convert.ToDouble(Convert.ToDecimal(input) + value);
+		}
 		#endregion
 
 		#region Int32
+		/// <summary>
+		/// Returns true when it's positive.
+		/// </summary>
 		public static bool IsPositive(this int input)
 		{
 			return (input > 0);
 		}
+		/// <summary>
+		/// Returns true when it's negative.
+		/// </summary>
 		public static bool IsNegative(this int input)
 		{
 			return (input < 0);
 		}
+		/// <summary>
+		/// Returns true when it's zero.
+		/// </summary>
 		public static bool IsZero(this int input)
 		{
 			return (input == 0);
 		}
+		/// <summary>
+		/// Returns true when it's above the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsAbove(this int input, int comparer)
 		{
 			return input > comparer;
 		}
+		/// <summary>
+		/// Returns true when it's above or equal the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsAboveOrEqual(this int input, int comparer)
 		{
 			return input >= comparer;
 		}
+		/// <summary>
+		/// Returns true when it's below the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsBelow(this int input, int comparer)
 		{
 			return input < comparer;
 		}
+		/// <summary>
+		/// Returns true when it's below or equal the comparer.
+		/// </summary>
+		/// <param name="comparer">The value to compare.</param>
 		public static bool IsBelowOrEqual(this int input, int comparer)
 		{
 			return input <= comparer;
 		}
+
+		/// <summary>
+		/// Returns true when it's between both comparer.
+		/// </summary>
+		/// <param name="comparerA">The floor value to compare.</param>
+		/// <param name="comparerB">The ceiling value to compare.</param>
 		public static bool IsBetween(this int input, int comparerA, int comparerB)
 		{
 			if (comparerA >= comparerB)
@@ -126,7 +217,7 @@ namespace System
 			List<object> values = new List<object>();
 			string output = input;
 
-			if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+			if (!input.IsExist())
 			{
 				throw new ArgumentNullException("input is required.");
 			}
@@ -151,5 +242,14 @@ namespace System
 		}
 		#endregion
 
+		#region DateTime
+		/// <summary>
+		/// Convert DateTime to string in ISO 8601 format.
+		/// </summary>
+		public static string ToISO8601(this DateTime input)
+		{
+			return input.ToString("s", System.Globalization.CultureInfo.InvariantCulture);
+		}
+		#endregion
 	}
 }
