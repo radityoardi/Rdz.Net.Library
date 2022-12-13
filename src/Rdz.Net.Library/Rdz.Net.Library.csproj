@@ -8,14 +8,10 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+	  <RepositoryUrl>https://github.com/radityoardi/Rdz.Net.Library.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
   </PropertyGroup>
 	
-	<ItemGroup>
-    <!-- For GitHub -->
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>
-	</ItemGroup>
-
 	<ItemGroup>
       <None Include="..\..\docs\**" Pack="true" PackagePath="\docs\" />
       <None Include="..\..\README.md" Pack="true" PackagePath="\" />
