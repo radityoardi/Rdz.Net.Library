@@ -1,8 +1,15 @@
 # Extensions.IsBetween method (1 of 2)
 
+Returns true when it's between both comparer.
+
 ```csharp
 public static bool IsBetween(this double input, double comparerA, double comparerB)
 ```
+
+| parameter | description |
+| --- | --- |
+| comparerA | The floor value to compare. |
+| comparerB | The ceiling value to compare. |
 
 ## See Also
 
@@ -13,9 +20,16 @@ public static bool IsBetween(this double input, double comparerA, double compare
 
 # Extensions.IsBetween method (2 of 2)
 
+Returns true when it's between both comparer.
+
 ```csharp
 public static bool IsBetween(this int input, int comparerA, int comparerB)
 ```
+
+| parameter | description |
+| --- | --- |
+| comparerA | The floor value to compare. |
+| comparerB | The ceiling value to compare. |
 
 ## See Also
 

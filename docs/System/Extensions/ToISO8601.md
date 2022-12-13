@@ -1,5 +1,7 @@
 # Extensions.ToISO8601 method
 
+Convert DateTime to string in ISO 8601 format.
+
 ```csharp
 public static string ToISO8601(this DateTime input)
 ```

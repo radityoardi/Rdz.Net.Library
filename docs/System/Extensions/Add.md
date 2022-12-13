@@ -1,8 +1,14 @@
 # Extensions.Add method (1 of 2)
 
+Adds the number precisely (this fix the precision issue.
+
 ```csharp
 public static double Add(this double input, decimal value)
 ```
+
+| parameter | description |
+| --- | --- |
+| value | The value to add. |
 
 ## See Also
 
@@ -13,9 +19,15 @@ public static double Add(this double input, decimal value)
 
 # Extensions.Add method (2 of 2)
 
+Adds the number precisely (this fix the precision issue.
+
 ```csharp
 public static double Add(this double input, double value)
 ```
+
+| parameter | description |
+| --- | --- |
+| value | The value to add. |
 
 ## See Also
 

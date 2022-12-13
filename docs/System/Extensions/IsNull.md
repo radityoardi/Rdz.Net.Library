@@ -1,5 +1,7 @@
 # Extensions.IsNull method
 
+Test if an object is null.
+
 ```csharp
 public static bool IsNull(this object input)
 ```

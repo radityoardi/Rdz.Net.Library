@@ -1,5 +1,7 @@
 # Extensions.IsNegative method (1 of 2)
 
+Returns true when it's negative.
+
 ```csharp
 public static bool IsNegative(this double input)
 ```
@@ -12,6 +14,8 @@ public static bool IsNegative(this double input)
 ---
 
 # Extensions.IsNegative method (2 of 2)
+
+Returns true when it's negative.
 
 ```csharp
 public static bool IsNegative(this int input)

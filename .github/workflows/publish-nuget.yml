@@ -32,6 +32,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore $SOLUTION
 
+    - name: Install xmldocmd documentation generator
+      run: dotnet tool install xmldocmd -g
+
     - name: Build
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
     

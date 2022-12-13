@@ -34,14 +34,17 @@ namespace Rdz.Net.Library.Tests
 		}
 
 		[Theory]
-		[InlineData("String: {Text}, Double: {NumberDouble}, Int32: {NumberInteger}", "String: this is string, Double: 1234.5678, Int32: 1234")]
-		[InlineData("String: {Text}, Double: {NumberDouble:#,##0.0}, Int32: {NumberInteger:#,##0.00}, Date: {DateFirst:ddMMyyyy}", "String: this is string, Double: 1,234.6, Int32: 1,234.00, Date: 01010001")]
+		[InlineData("String: {Text}, Double: {NumberDouble}, Int32: {NumberInteger}, ID: {ID}", "String: this is string, Double: 1234.5678, Int32: 1234, ID: 0561c0b3-0d09-4969-af2c-5c39d5c4af6a")]
+		[InlineData("String: {Text}, Double: {NumberDouble:#,##0.0}, Int32: {NumberInteger:#,##0.00}, Date: {DateFirst:ddMMyyyy}, ID: {ID:B}", "String: this is string, Double: 1,234.6, Int32: 1,234.00, Date: 01010001, ID: {0561c0b3-0d09-4969-af2c-5c39d5c4af6a}")]
 		[InlineData("Date1: {DateFirst:ddMMyyyy}", "Date1: 01010001")]
 		[InlineData("Date2: {DateFirst:HHmmss}", "Date2: 000000")]
 		[InlineData("Date3: {DateFirst:ddd}", "Date3: Mon")]
 		[InlineData("Date4: {DateFirst:dddd}", "Date4: Monday")]
 		[InlineData("Date5: {DateFirst:MMM}", "Date5: Jan")]
 		[InlineData("Date6: {DateFirst:MMMM}", "Date6: January")]
+		[InlineData("ID: {ID}", "ID: 0561c0b3-0d09-4969-af2c-5c39d5c4af6a")]
+		[InlineData("ID: {ID:B}", "ID: {0561c0b3-0d09-4969-af2c-5c39d5c4af6a}")]
+		[InlineData("ID: {ID:P}", "ID: (0561c0b3-0d09-4969-af2c-5c39d5c4af6a)")]
 		[InlineData("NotFoundProps: {NonExistProps}", "NotFoundProps: {NonExistProps}")]
 		void FormatTemplateTests(string value, string expected)
 		{
@@ -51,6 +54,7 @@ namespace Rdz.Net.Library.Tests
 				NumberDouble = 1234.5678,
 				NumberInteger = 1234,
 				DateFirst = DateTime.MinValue,
+				ID = Guid.Parse("0561c0b3-0d09-4969-af2c-5c39d5c4af6a"),
 			};
 			Assert.Equal(expected, value.FormatTemplate(data));
 		}

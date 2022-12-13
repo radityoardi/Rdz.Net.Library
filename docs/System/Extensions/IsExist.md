@@ -1,5 +1,7 @@
 # Extensions.IsExist method
 
+Test whether string is exist (not null, not empty, nor whitespace)
+
 ```csharp
 public static bool IsExist(this string input)
 ```

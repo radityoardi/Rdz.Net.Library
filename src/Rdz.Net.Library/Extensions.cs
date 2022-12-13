@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace System
 {
+	/// <summary>
+	/// Extension class for common objects under System namespace.
+	/// </summary>
 	public static class Extensions
 	{
 		#region Object
@@ -24,6 +27,13 @@ namespace System
 		/// <summary>
 		/// Returns true when it's positive.
 		/// </summary>
+		/// <example>
+		/// <code>
+		/// double data = 5.12314123;
+		/// Console.WriteLine($"Is data positive: {data.IsPositive()}");
+		/// //returns "Is data positive: True
+		/// </code>
+		/// </example>
 		public static bool IsPositive(this double input)
 		{
 			return (!double.IsNaN(input) && input > 0);
@@ -210,7 +220,38 @@ namespace System
 
 		/// <summary>
 		/// Format a string template based on the dynamic input data.
+		/// It's the additional method to complement String Interpolation,
+		/// except that the string can be stored as a file or configuration outside the assembly.
 		/// </summary>
+		/// <example>
+		/// Standard example to use FormatTemplate.
+		/// <code>
+		/// string template = "I'm sure that {FirstName} needs {Amount} since {RequestedDate} with specific {ID}";
+		/// dynamic data = new {
+		///		FirstName = "Radityo",
+		///		Amount = 546481237.523498,
+		///		RequestedDate = DateTime.Now.AddYears(-3),
+		///		ID = Guid.NewGuid()
+		/// };
+		/// Console.WriteLine(template.FormatTemplate(data));
+		/// //Returns "I'm sure that Radityo needs 546481237.523498 since Friday, October 31, 2008 with specific 0561c0b3-0d09-4969-af2c-5c39d5c4af6a"
+		/// //Note that DateTime string return is highly-dependent on ToString method output and your system (Windows or Linux).
+		/// </code>
+		/// 
+		/// Advanced example to use FormatTemplate.
+		/// <code>
+		/// string template = "I'm sure that {FirstName} needs {Amount:#,##0.00} since {RequestedDate:ddMMMyyyy} with specific {ID:B}";
+		/// dynamic data = new {
+		///		FirstName = "Radityo",
+		///		Amount = 546481237.523498,
+		///		RequestedDate = DateTime.Now.AddYears(-3),
+		///		ID = Guid.NewGuid()
+		/// };
+		/// Console.WriteLine(template.FormatTemplate(data));
+		/// //Returns "I'm sure that Radityo needs 546,481,237.52 since 31Oct2008 with specific {0561c0b3-0d09-4969-af2c-5c39d5c4af6a}"
+		/// //Note that DateTime string return is highly-dependent on ToString method output and your system (Windows or Linux).
+		/// </code>
+		/// </example>
 		public static string FormatTemplate(this string input, dynamic data)
 		{
 			int indexer = 0;

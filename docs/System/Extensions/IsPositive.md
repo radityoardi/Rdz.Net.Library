@@ -1,7 +1,17 @@
 # Extensions.IsPositive method (1 of 2)
 
+Returns true when it's positive.
+
 ```csharp
 public static bool IsPositive(this double input)
+```
+
+## Examples
+
+```csharp
+double data = 5.12314123;
+Console.WriteLine($"Is data positive: {data.IsPositive()}");
+//returns "Is data positive: True
 ```
 
 ## See Also
@@ -12,6 +22,8 @@ public static bool IsPositive(this double input)
 ---
 
 # Extensions.IsPositive method (2 of 2)
+
+Returns true when it's positive.
 
 ```csharp
 public static bool IsPositive(this int input)

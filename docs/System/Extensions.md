@@ -1,5 +1,7 @@
 # Extensions class
 
+Extension class for common objects under System namespace.
+
 ```csharp
 public static class Extensions
 ```
@@ -8,20 +10,20 @@ public static class Extensions
 
 | name | description |
 | --- | --- |
-| static [Add](Extensions/Add.md)(…) |  (2 methods) |
-| static [FormatTemplate](Extensions/FormatTemplate.md)(…) |  |
-| static [IsAbove](Extensions/IsAbove.md)(…) |  (2 methods) |
-| static [IsAboveOrEqual](Extensions/IsAboveOrEqual.md)(…) |  (2 methods) |
-| static [IsBelow](Extensions/IsBelow.md)(…) |  (2 methods) |
-| static [IsBelowOrEqual](Extensions/IsBelowOrEqual.md)(…) |  (2 methods) |
-| static [IsBetween](Extensions/IsBetween.md)(…) |  (2 methods) |
-| static [IsExist](Extensions/IsExist.md)(…) |  |
-| static [IsNaN](Extensions/IsNaN.md)(…) |  |
-| static [IsNegative](Extensions/IsNegative.md)(…) |  (2 methods) |
-| static [IsNull](Extensions/IsNull.md)(…) |  |
-| static [IsPositive](Extensions/IsPositive.md)(…) |  (2 methods) |
-| static [IsZero](Extensions/IsZero.md)(…) |  (2 methods) |
-| static [ToISO8601](Extensions/ToISO8601.md)(…) |  |
+| static [Add](Extensions/Add.md)(…) | Adds the number precisely (this fix the precision issue. (2 methods) |
+| static [FormatTemplate](Extensions/FormatTemplate.md)(…) | Format a string template based on the dynamic input data. It's the additional method to complement String Interpolation, except that the string can be stored as a file or configuration outside the assembly. |
+| static [IsAbove](Extensions/IsAbove.md)(…) | Returns true when it's above the comparer. (2 methods) |
+| static [IsAboveOrEqual](Extensions/IsAboveOrEqual.md)(…) | Returns true when it's above or equal the comparer. (2 methods) |
+| static [IsBelow](Extensions/IsBelow.md)(…) | Returns true when it's below the comparer. (2 methods) |
+| static [IsBelowOrEqual](Extensions/IsBelowOrEqual.md)(…) | Returns true when it's below or equal the comparer. (2 methods) |
+| static [IsBetween](Extensions/IsBetween.md)(…) | Returns true when it's between both comparer. (2 methods) |
+| static [IsExist](Extensions/IsExist.md)(…) | Test whether string is exist (not null, not empty, nor whitespace) |
+| static [IsNaN](Extensions/IsNaN.md)(…) | Returns true when it's NaN (undefined). |
+| static [IsNegative](Extensions/IsNegative.md)(…) | Returns true when it's negative. (2 methods) |
+| static [IsNull](Extensions/IsNull.md)(…) | Test if an object is null. |
+| static [IsPositive](Extensions/IsPositive.md)(…) | Returns true when it's positive. (2 methods) |
+| static [IsZero](Extensions/IsZero.md)(…) | Returns true when it's zero. (2 methods) |
+| static [ToISO8601](Extensions/ToISO8601.md)(…) | Convert DateTime to string in ISO 8601 format. |
 
 ## See Also
 

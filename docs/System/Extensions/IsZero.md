@@ -1,5 +1,7 @@
 # Extensions.IsZero method (1 of 2)
 
+Returns true when it's zero.
+
 ```csharp
 public static bool IsZero(this double input)
 ```
@@ -12,6 +14,8 @@ public static bool IsZero(this double input)
 ---
 
 # Extensions.IsZero method (2 of 2)
+
+Returns true when it's zero.
 
 ```csharp
 public static bool IsZero(this int input)

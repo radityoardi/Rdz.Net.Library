@@ -1,5 +1,7 @@
 # Extensions.IsNaN method
 
+Returns true when it's NaN (undefined).
+
 ```csharp
 public static bool IsNaN(this double input)
 ```

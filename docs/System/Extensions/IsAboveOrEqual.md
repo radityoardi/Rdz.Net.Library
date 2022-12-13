@@ -1,8 +1,14 @@
 # Extensions.IsAboveOrEqual method (1 of 2)
 
+Returns true when it's above or equal the comparer.
+
 ```csharp
 public static bool IsAboveOrEqual(this double input, double comparer)
 ```
+
+| parameter | description |
+| --- | --- |
+| comparer | The value to compare. |
 
 ## See Also
 
@@ -13,9 +19,15 @@ public static bool IsAboveOrEqual(this double input, double comparer)
 
 # Extensions.IsAboveOrEqual method (2 of 2)
 
+Returns true when it's above or equal the comparer.
+
 ```csharp
 public static bool IsAboveOrEqual(this int input, int comparer)
 ```
+
+| parameter | description |
+| --- | --- |
+| comparer | The value to compare. |
 
 ## See Also
 
